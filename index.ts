@@ -79,7 +79,6 @@ function renderDirective(
     binding => !binding.keyIsVar && binding.expression !== null
   )
 
-  console.log(renderDirectiveContext(className, templateBindings))
   return unpad`
     ${imports}${
     hasVars
