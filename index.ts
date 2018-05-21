@@ -26,6 +26,21 @@ function get(binding: string) {
   return form[binding].value
 }
 
+function escapeQueryParams(
+  strings: TemplateStringsArray,
+  ...values: string[]
+) {
+  return strings.reduce((result, str, i) => {
+    result += str
+
+    if (i < values.length) {
+      result += encodeURIComponent(values[i])
+    }
+
+    return result
+  }, '')
+}
+
 function render() {
   let output = document.querySelector('#output')
   let directiveOutput = document.querySelector('#directive')
@@ -44,6 +59,12 @@ function render() {
     directive,
     tagName,
     result.templateBindings
+  )
+
+  window.history.replaceState(
+    null,
+    '',
+    escapeQueryParams`?tagName=${tagName}&directive=${directive}&binding=${binding}`
   )
 }
 
