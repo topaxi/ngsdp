@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Structural Directive Playground</title>
+    <style>
+      input { border: none; font: inherit; background: #eeeeec }
+      #errors, #warnings { white-space: pre }
+      #errors:empty, #warnings:empty { display: none }
+      #errors:not(:empty) { border: 1px solid red }
+      #errors:not(:empty) ~ #generated { display: none }
+      #warnings:not(:empty) { border: 1px solid orange }
+    </style>
+    <script async src="https://leaverou.github.io/stretchy/stretchy.min.js"></script>
+    <script defer src="./index.ts"></script>
+  </head>
+<body>
+  <h1>Angular Structural Directive Playground</h1>
+  <h2><a href="https://angular.io/guide/structural-directives#microsyntax">Microsyntax</a></h2>
+
+  <form>
+    <pre>&lt;<input name="tagName" value="div"> *<input name="directive" value="ngFor">="<input autofocus name="binding" value="let el of elements | async; trackBy: trackByElement; let i = index">"/&gt;</pre>
+  </form>
+
+  <div id="errors"></div>
+  <div id="warnings"></div>
+
+  <div id="generated">
+    <div>
+      <h2>Desugared</h2>
+      <pre id="output"></pre>
+    </div>
+
+    <div>
+      <h2>Directive</h2>
+      <pre id="directive"></pre>
+    </div>
+  </div>
+</body>
+</html>
