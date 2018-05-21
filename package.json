@@ -6,7 +6,7 @@
   "description": "Angular Structural Directive Playground",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html -d docs"
+    "build": "parcel build index.html -d docs --public-url '.'"
   },
   "dependencies": {
     "@angular/compiler": "^6.0.2"
