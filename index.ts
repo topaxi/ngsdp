@@ -77,7 +77,7 @@ function renderOutput(tagName, templateBindings: TemplateBinding[]) {
             ? `let-${binding.key}="${binding.name}"`
             : `let-${binding.key}`
           : binding.expression !== null
-            ? `[${binding.key}]="${binding.expression.source}"`
+            ? `[${binding.key}]="${binding.expression.source.trim()}"`
             : `[${binding.key}]`
     )
     .join(' ')
